@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Villa VR</title>
-  <script src="script/aframe.min.js"></script>
+  <script src="Script/aframe.min.js"></script>
 </head>
 <body>
   <a-scene shadow="type: pcfsoft">
@@ -101,15 +101,14 @@
     shadow="cast: true; receive: false">
 </a-box>
 
-
-<!-- Water surface with animated texture -->
-<a-entity geometry="primitive: plane; width: 40; height: 12.4"
-          material="src: url(images/water_texture.jpg); opacity: 0.8"
-          rotation="-90 0 0"
-          position="30 0.1 -136.5"
-          animation__move="property: material.offset.x; to: 1; dur: 2000; dir: alternate; loop: true">
-</a-entity>
-
+<a-box src="images/water_texture.jpg"
+    position="30 0.1 -136.5"   
+    width="40"            
+    height="0.1"           
+    depth="12.4"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
  
 
     <!-- Villa Model -->
@@ -121,7 +120,6 @@
     </a-entity>
 
     
-
     <!-- Camera -->
     <a-camera position="24 1.6 20" wasd-controls="enabled: true;"></a-camera>
   </a-scene>
