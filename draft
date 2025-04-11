@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Villa VR</title>
+  <script src="Script/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene shadow="type: pcfsoft">
+    <!-- Assets -->
+    <a-assets>
+      <a-asset-item id="villaModel" src="models/myvilla.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- Lighting -->
+    <!-- Softer ambient light for natural texture appearance -->
+    <a-light type="ambient" color="#ffffff" intensity="0.6"></a-light>
+
+    <!-- Directional sunlight for highlights -->
+    <a-light type="directional"
+             color="#ffffff"
+             intensity="1.0"
+             position="10 20 10"
+             target="#lightTarget"
+             castShadow="true">
+    </a-light>
+
+    <!-- Hemisphere light for natural environment fill -->
+    <a-light type="hemisphere"
+             color="#ffffff"
+             groundColor="#aaaaaa"
+             intensity="0.8"
+             position="0 20 0">
+    </a-light>
+
+    <!-- Sky and Ground -->
+    <a-sky src="images/sky.jpg"></a-sky>
+
+    <a-plane src="images/ground_texture.jpg"
+             rotation="-90 0 0"
+             width="10000"
+             height="10000"
+             position="0 0 0"
+             shadow="receive: true">
+    </a-plane>
+
+    <!-- Long wall at the side using a box -->
+<a-box src="images/wall.jpg" 
+    position="-25 2 -85"   
+    width="0.5"            
+    height="6"           
+    depth="180"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+    
+</a-box>
+
+<a-box src="images/wall.jpg"
+    position="80 2 -85"   
+    width="0.5"            
+    height="6"           
+    depth="180"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
+
+<a-box src="images/wall.jpg"
+    position="28 2 -173"   
+    width="107"            
+    height="6"           
+    depth="0.5"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
+
+<a-box src="images/wall.jpg"
+    position="-4 2 5"   
+    width="44"            
+    height="6"           
+    depth="0.5"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
+
+<a-box src="images/wall.jpg"
+    position="59 2 5"   
+    width="44"            
+    height="6"           
+    depth="0.5"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
+
+<a-box src="images/pblocks.jpg"
+    position="27.5 0.1 5"   
+    width="19"            
+    height="0.1"           
+    depth="30"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
+
+<a-box src="images/water_texture.jpg"
+    position="30 0.1 -136.5"   
+    width="40"            
+    height="0.1"           
+    depth="12.4"             
+    material="color: #999999"  
+    shadow="cast: true; receive: false">
+</a-box>
+ 
+
+    <!-- Villa Model -->
+    <a-entity id="lightTarget"
+              gltf-model="#villaModel"
+              position="0 0 -10"
+              scale="0.1 0.1 0.1"
+              shadow="cast: true; receive: true">
+    </a-entity>
+
+    
+    <!-- Camera -->
+    <a-camera position="24 1.6 20" wasd-controls="enabled: true;"></a-camera>
+  </a-scene>
+</body>
+</html>
